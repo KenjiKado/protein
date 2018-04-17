@@ -1,0 +1,1113 @@
+@import compass/reset
+@import compass/css3
+@import compass/layout
+@import compass/typography
+@import compass/css3/font-face
+@import compass/utilities
+
+//IMPORT
+@import "../grid.scss"
+@import "../font-awesome.scss"
+@import "../mediaelementplayer.min.scss"
+@import "../owl.carousel.scss"
+@import "../jquery.fancybox.min.scss"
+@import "../animate.scss"
+
+//FONTS
+@font-face 
+	font-family: "Abys-Regular"
+	src: url('../fonts/Abys-Regular/Abys-Regular.woff') format('woff'), url('../fonts/Abys-Regular/Abys-Regular.woff2') format('woff2')
+	font-weight: normal
++font-face("SegoeUIRegular", font-files("../fonts/SegoeUIRegular/SegoeUIRegular.woff"), "../fonts/SegoeUIRegular/SegoeUIRegular.eot", normal)
++font-face("SegoeUIBold", font-files("../fonts/SegoeUIBold/SegoeUIBold.woff"), "../fonts/SegoeUIBold/SegoeUIBold.eot", bold)
++font-face("SegoeUISemiBold", font-files("../fonts/SegoeUISemiBold/SegoeUISemiBold.woff"), "../fonts/SegoeUISemiBold/SegoeUISemiBold.eot", bold)
+@import url('https://fonts.googleapis.com/css?family=Pridi:200,300,400,500,600,700&subset=thai')
+
+// CONFIG
+$base-font-size: 16px !global 
+$base-line-height: 24px !global
++establish-baseline
+
+//COLORS
+$green: #8fbb02
+$violet: #730983
+
+
+//STYLE
+body
+	background-color: #eee
+	overflow-x: hidden
+	.btn-container
+		text-align: center
+		.btn
+			display: inline-block
+			width: initial
+			text-align: center
+			cursor: pointer
+			&:hover
+				text-decoration: none
+			&.green-btn
+				height: 50px
+				padding: 0 35px
+				border: 0
+				background-color: $green
+				border-radius: 26px
+				box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25)
+				font-family: "SegoeUISemiBold", "Pridi", sans-serif
+				+adjust-font-size-to(20px)
+				line-height: 50px	
+				color: #fff
+				&:focus
+					outline: none
+				&:hover
+					background-color: darken($green, 1.2)	
+			&.violet-btn
+				height: 50px
+				padding: 0 35px
+				border: 0
+				background-color: $violet
+				border-radius: 26px
+				box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25)	
+				font-family: "SegoeUISemiBold", "Pridi", sans-serif
+				+adjust-font-size-to(20px)
+				line-height: 50px		
+				color: #fff
+				&:focus
+					outline: nonу
+				&:hover
+					background-color: darken($violet, 1.2)	
+			&.taste-btn
+				+adjust-font-size-to(18px)
+				line-height: 1
+				padding: 10px 20px
+				border: 2px solid rgba(#730983, 0.4)	
+				border-radius: 26px	
+				color: #730983
+				transition: all ease-out 0.3s
+				&:hover
+					background-color: rgba(#730983, 0.4)
+					border-color: #c79dcd
+	form	
+		.row-block
+			display: table
+			margin: 10px 0
+			width: 100%
+			.input-row
+				display: table-cell
+				width: 50%
+				&:first-child
+					padding-right: 10px
+				&:last-child
+					padding-left: 10px	
+			label:not(.checkbox)
+				color: #fff
+				span
+					opacity: 0.5			
+			input[type=text],input[type=tel], select
+				width: 100%	
+				height: 40px
+				padding: 5px 10px
+				border: 0
+				border-radius: 5px
+				background-color: #FFF
+				outline: none
+				color: #000
+			select
+				-moz-appearance: none
+				-webkit-appearance: none
+				appearance: none
+				background-image: url("../img/down.png")
+				background-repeat: no-repeat
+				background-position: 95% center
+		.checkbox-row
+			padding: 0 0 20px
+			label:not(.error)
+				position: relative
+				display: inline-block
+				width: 20px
+				height: 20px
+				margin-right: -3px
+				border: 1px solid #d2d2d2
+				background-color: #FFF
+				vertical-align: middle
+				&.checked
+					&:after
+						content: "\f00c"
+						display: block
+						position: absolute
+						left: 1px
+						right: 0
+						top: -3px
+						bottom: 0
+						margin: auto
+						font-family: "FontAwesome", sans-serif
+						color: #5ddc00
+			input[type=checkbox]
+				width: 0
+				height: 0
+				opacity: 0
+			p
+				display: inline-block
+				margin-left: -3px
+				padding: 0 0 0 10px
+				+adjust-font-size-to(13px)
+				line-height: 1	
+				vertical-align: middle			
+				color: #fff			
+		label
+			&.error
+				display: block
+				color: #fd364e !important		
+.mobile-block
+	display: none				
+header
+	height: 60px
+	position: absolute
+	width: 100%
+	z-index: 1000
+	.header-content
+		height: 60px
+		max-width: 1280px
+		margin: 0 auto
+		.top-block
+			position: relative
+			width: 100%
+			display: inline-block
+			margin: 0 -3px
+			vertical-align: middle
+			&:first-child
+				text-align: left		
+			&:last-child
+				text-align: right		
+			.logo
+				display: inline-block	
+				img
+					padding: 5px 0
+.protein-block
+	max-width: 1280px
+	margin: 0 auto
+	font-family: "SegoeUIRegular", "Pridi", sans-serif
+	background-color: #FFF
+	color: #fff
+	b, strong
+		font-family: "SegoeUIBold", 'Pridi', sans-serif
+		font-weight: bold
+	.mobile-block
+		display: none			
+	.box-1
+		position: relative
+		padding: 20px 80px 10px 40px
+		background-image: url("../img/bg1.jpg")
+		background-size: cover
+		background-repeat: no-repeat
+		.image-block
+			img
+				position: absolute
+				width: 100%
+				top: 60px
+				left: 0
+		.title-block
+			text-align: center
+			h2
+				font-family: "Abys-Regular" !important
+				+adjust-font-size-to(110px)	
+				line-height: 1.1
+				text-transform: uppercase
+			p
+				margin: 5px 0
+				font-family: "SegoeUIRegular", "Pridi", sans-serif
+				+adjust-font-size-to(20px)
+				line-height: 1.3
+		.form-block
+			min-height: 290px
+			margin: 20px 0
+			padding: 20px 70px
+			background-color: rgba(#000, 0.3)
+	.box-2
+		padding: 40px 0 20px
+		background-image: url("../img/dumbbell.png")
+		background-size: cover
+		background-position: center top
+		text-align: center
+		.title-block
+			text-align: center
+			margin-bottom: 10px
+			h3
+				font-family: "SegoeUIBold", "Pridi", sans-serif
+				+adjust-font-size-to(28px)
+				line-height: 1.3
+				color: #000
+		.goals-block
+			display: inline-block
+			max-width: 50%
+			padding: 20px 0
+			margin: 0 auto		
+			color: #000
+			.goal
+				display: table-cell
+				width: 50%
+				&:last-child
+					display: block
+					width: 100%
+				>*
+					display: table-cell
+					vertical-align: middle
+				.icon-block
+					width: 87px
+					height: 93px
+					text-align: center
+					background-image: url("../img/icon-bg.png")
+					vertical-align: middle
+					background-repeat: no-repeat
+				p
+					+adjust-font-size-to(20px)
+					line-height: 1
+					text-align: left
+	.box-3
+		padding: 20px 0
+		text-align: center
+		.function-title
+			width: 80%
+			margin: 0 auto
+			padding: 50px 100px
+			box-shadow: 20px 15px 0px 0px rgba(#eee, 1), -20px 15px 0px 0px rgba(#eee, 1)
+			background-image: linear-gradient(-69deg, #8fbb02 0%, #8fbb02 1%, #3c9b09 100%)
+			h3
+				+adjust-font-size-to(30px)
+				line-height: 1.3
+				b
+					font-weight: 700
+		.one-function		
+			position: relative	
+			.function
+				display: inline-block
+				padding: 60px 0 20px
+				width: 50%
+				color: #000
+				>*
+					display: table-cell
+					vertical-align: top
+					text-align: left
+				.title-block
+					margin-bottom: 10px
+					h5
+						font-family: "SegoeUISemiBold", "Pridi", sans-serif
+						+adjust-font-size-to(22px)
+						line-height: 1.3
+				.function-description
+					padding-left: 20px
+					p
+						font-weight: 400
+						line-height: 1.1
+						span
+							+adjust-font-size-to(13px)
+							line-height: 1.1
+							color: #a8a8a8
+						b
+							font-weight: bold	
+					ul
+						padding: 15px 0 15px 20%
+						li
+							line-height: 1.1
+							&:before
+								content: "\f00c"
+								display: inline-block	
+								padding-right: 3px
+								font-family: "FontAwesome", sans-serif
+								color: #8fbb02
+				&.first-function
+					overflow-x: hidden
+					&:before
+						content: ''
+						display: block
+						width: 260px
+						height: 231px
+						position: absolute
+						left: -10%
+						bottom: -25%
+						background-image: url("../img/leaf2.png")
+					&:after
+						content: ''
+						display: block
+						width: 162px
+						height: 116px
+						position: absolute
+						right: -5%
+						bottom: 0%
+						background-image: url("../img/leaf1.png")
+		.about-bcaa
+			position: relative
+			padding: 20px 80px
+			text-align: center
+			background-image: url("../img/bg2.jpg")
+			background-size: cover		
+			&:after
+				content: ''
+				width: 74px
+				height: 146px
+				position: absolute
+				bottom: -25%
+				left: 2%
+				display: block
+				background-image: url("../img/leaf3.png")	
+			.title-block
+				display: inline-block
+				margin-bottom: 40px
+				h3
+					display: inline-block
+					+adjust-font-size-to(35px)
+					padding: 0 20px
+					line-height: 1.3
+					text-shadow: 1px 1px 8px rgba(22, 72, 0, 0.45)
+					&:after
+						content: ''
+						display: block
+						margin-top: 3px
+						width: 100%
+						height: 7px
+						background-image: url("../img/wave.png")
+				&:before, &:after
+					content: "\f005"
+					display: inline-block
+					font-family: "FontAwesome", sans-serif
+					+adjust-font-size-to(30px)
+					line-height: 1.3
+					text-shadow: 1px 1px 8px rgba(22, 72, 0, 0.45)
+			.text-block
+				padding: 25px 0		
+		.description
+			padding: 20px
+			text-align: center
+			background-color: #cacaca
+			p
+				+adjust-font-size-to(20px)
+				line-height: 1
+				text-transform: uppercase
+				color: #666				
+	.box-4
+		.reviews-container
+			position: relative
+			padding: 20px 0
+			&:before
+				content: ''
+				position: absolute
+				top: -28%
+				right: -10%
+				width: 452px
+				height: 304px
+				background-image: url("../img/vanilla.png")	
+				z-index: 101
+			.title-block
+				position: relative
+				display: block
+				width: 100%
+				text-align: center
+				&:after
+					content: ''
+					display: block
+					position: absolute
+					left: 0
+					top: 50%
+					width: 100%
+					height: 3px
+					background-color: $green
+				.title-content
+					position: relative
+					padding: 0 20px
+					display: inline-block
+					background-color: #fff
+					color: #000
+					z-index: 100
+					>*
+						display: table-cell
+						vertical-align: middle
+						text-align: left
+					.title
+						padding-left: 20px
+						h3
+							margin-top: -12px
+							font-family: "SegoeUIBold", "Pridi", sans-serif
+							+adjust-font-size-to(30px)
+							line-height: 1.1
+			.reviews-block
+				padding: 140px 80px 120px
+				.one-review
+					a
+						display: block
+						position: relative
+						height: 237px
+						overflow: hidden
+						transition: all ease-out 0.3s
+						img
+							width: 100%
+							box-shadow: 0 0 8px rgba(0, 0, 0, 0.27)
+						&.hover
+							overflow: visible
+							transform: scale(1.7)
+							z-index: 1000
+	.box-5
+		.composition
+			padding: 25px 0
+			background-image: url("../img/bg3.jpg")
+			background-size: cover
+			.title-block
+				text-align: center
+				h4
+					font-family: "SegoeUIBold", "Pridi", sans-serif
+					+adjust-font-size-to(30px)
+					line-height: 1.3
+			table
+				width: 33.33%
+				margin: 10px auto 0
+				tr
+					border-bottom: 1px solid #fff
+					&:last-child
+						border-bottom: 0
+					td
+						padding: 3px 0
+	.box-6
+		padding: 60px 0
+		.title-block	
+			text-align: center
+			color: #000
+			h3
+				font-family: "SegoeUIBold", 'Pridi', sans-serif
+				+adjust-font-size-to(30px)
+				line-height: 1.3
+				font-weight: bold
+			p
+				margin: 5px 0	
+		.certificates
+			padding: 50px 0 40px
+			background-image: url("../img/ruler_bg.png")
+			background-repeat: no-repeat
+			background-position: 35% 50%
+			.certificate-block
+				display: block
+				text-align: center
+				img
+					max-width: 100%	
+					transition: all ease-out 0.3s	
+				&:hover
+					img
+						box-shadow: 0 3px 23px 1px rgba(115, 9, 131, 0.75)
+						transform: scale(1.1)		
+			&.certificates-mobile
+				display: none			
+		.product-attr
+			display: table
+			width: 80%
+			margin: 0 auto
+			text-align: center
+			.attr
+				display: inline-block
+				width: 22%
+				text-align: center	
+				vertical-align: top
+				>*
+					display: table-cell
+					vertical-align: middle	
+				.icon-block
+					padding-right: 10px	
+				p
+					text-align: left
+					color: #000
+	.box-7
+		.bright-tastes
+			position: relative
+			text-align: center
+			&:before
+				content: ''
+				position: absolute
+				top: 70%
+				left: -18%
+				width: 388px
+				height: 318px
+				background-image: url("../img/strawberry.png")
+				z-index: 1
+			&:after
+				content: ''
+				position: absolute
+				top: 70%
+				right: -20%
+				width: 431px
+				height: 353px
+				background-image: url("../img/coconut.png")
+				z-index: 1
+			&.full-version
+				&:before
+					left: -23%
+				&:after
+					right: -27%	
+			.container
+				.row	
+					>.title-block
+						padding: 20px 0 40px
+						border-top: 1px solid rgba(#730983, 0.3) 
+						text-align: center
+						color: #333
+						h3
+							+adjust-font-size-to(30px)
+							line-height: 1.3
+						p
+							margin: 5px 0			
+			.col-xs-12
+				display: inline-block
+				margin: 0 -3px
+				float: none
+				vertical-align: top
+			.taste-block
+				position: relative
+				padding-bottom: 40px
+				color: #000
+				z-index: 10
+				.image-block
+					display: table-cell
+					width: 100%
+					text-align: center
+					vertical-align: bottom
+					img
+						max-width: 100%
+						max-height: 100%
+				.title-block
+					h5
+						display: inline-block
+						font-family: "SegoeUISemiBold", 'Pridi', sans-serif
+						font-weight: bold
+						+adjust-font-size-to(22px)
+						line-height: 1
+						color: #333333		
+						&:after
+							content: ''
+							display: block
+							margin: 3px auto 0
+							width: 100%
+							height: 2px
+					&.chocolate
+						h5
+							&:after
+								background-color: #9b4939
+					&.strawberry
+						h5
+							&:after
+								background-color: #fd6682	
+					&.vanilla
+						h5
+							&:after
+								background-color: #fee75d
+					&.green-coffee
+						h5
+							&:after
+								background-color: #4b9631 
+					&.pina-colada
+						h5
+							&:after
+								background-color: #5dd3ff
+					&.banana
+						h5
+							&:after
+								background-color: #ffee50
+					&.dark-chocolate
+						h5
+							&:after
+								background-color: #4d3d37
+					&.tropical
+						h5
+							&:after
+								background-color: #ed942a		
+					&.acai-berry
+						h5
+							&:after
+								background-color: #a92754
+					&.goji-berry
+						h5
+							&:after
+								background-color: #ed942a
+				.text-block
+					padding: 10px 0								
+	.box-8
+		.video-block
+			padding: 15px 0
+			background-image: url("../img/bg4.jpg")
+			background-size: cover
+			.text-block
+				padding: 50px 0 0
+				margin: 0 auto
+				p
+					+adjust-font-size-to(20px)
+					line-height: 1.3
+					span
+						font-family: "SegoeUIBold", "Pridi", sans-serif
+						+adjust-font-size-to(20px)
+						line-height: 1.3
+						font-weight: bold
+				&:nth-child(2)
+					width: 60%
+					text-align: center
+			.btn-container
+				padding: 20px 0 0			
+			.video-container
+				position: relative
+				.video
+					position: relative
+					border: 10px solid #fff
+					box-shadow: 3px 7px 13px rgba(0, 0, 0, 0.28)
+					z-index: 10
+				&:after
+					content: ''
+					position: absolute
+					top: 0
+					left: 0%
+					width: 100%
+					height: 100%
+					box-shadow: 2px 4px 13px rgba(0, 0, 0, 0.48)
+					background-color: #ffffff
+					transform: rotate(5deg)
+			.mejs__mediaelement
+				width: 100%	
+				overflow: hidden	
+			.mejs__container
+				max-width: 100%		
+			.mejs__overlay-button
+				&:focus
+					outline: none
+			.mejs__controls
+				top: 50%
+				left: -82%
+				width: 84%
+				background: none		
+			.mejs__time-handle-content
+				top: -10px
+				width: 15px
+				height: 15px
+				border: 0
+				transform: scale(1)
+				background-color: #FFF	
+				&:focus
+					outline: none
+			.mejs__time-float
+				display: none	!important
+			.mejs__time-current, .mejs__time-hovered, .mejs__time-loaded
+				display: none		
+			.mejs__time-total
+				height: 3px
+				background-color: #FFF	
+				&:focus
+					outline: none
+		.form-container
+			padding: 50px 0
+			background-image: url("../img/bg5.jpg")
+			background-size: cover
+			.title-block
+				width: 50%
+				margin: 0 auto
+				text-align: center
+				h3
+					+adjust-font-size-to(30px)
+					line-height: 1.3
+			form
+				width: 33.333%
+				position: relative
+				margin: 0 auto
+				&:before
+					content: ''
+					position: absolute
+					right: 100%
+					top: 0 
+					width: 288px
+					height: 207px
+					background-image: url("../img/diavita_left.png")
+				&:after
+					content: ''
+					position: absolute
+					left: 100%
+					top: 0
+					width: 263px
+					height: 191px
+					background-image: url("../img/vanilla2_eu.png")			
+.modal-form
+	display: none		
+	padding: 0
+	border-radius: 5px 5px 0 0
+	font-family: "SegoeUIRegular", "Pridi", sans-serif
+	background-color: #FFF	
+	.fancybox-close-small
+		&:after
+			background: none	
+		&:focus
+			&:after
+				outline: none	
+	.title-block
+		padding: 15px
+		background: #8ebc00	
+		color: #fff
+		.fa
+			padding-right: 10px
+			+adjust-font-size-to(25px)
+			line-height: 1
+			vertical-align: middle
+		p
+			display: inline-block	
+			width: 80%
+			font-family: "SegoeUIBold", "Pridi", sans-serif
+			+adjust-font-size-to(18px)
+			line-height: 1
+			vertical-align: middle
+	.form-container
+		padding: 20px
+		form
+			p
+				color: #333
+			.row-block
+				label
+					color: #333
+				input, select
+					border: 1px solid #ccc
+					border-radius: 0	
+.phone-btn
+	position: absolute
+	right: 35px
+	top: 450px
+	display: table-cell
+	height: 75px
+	width: 75px
+	border-radius: 50%
+	text-align: center
+	vertical-align: middle
+	background-color: #e20079
+	color: #fff		
+	box-shadow: 0 0 16px rgba(224, 0, 120, 0.4)
+	animation: pulse 2s infinite
+	transition: margin-top ease-out 0.5s
+	cursor: pointer
+	z-index: 1001
+	&:hover
+		color: #fff
+	.fa
+		height: 35px
+		width: 35px
+		+adjust-font-size-to(35px)
+		line-height: 75px
+footer
+	padding: 15px 0
+	box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.18)
+	background-color: #fff
+	.container
+		max-width: 1280px
+		width: initial
+	.col-xs-8, .col-xs-4
+		display: inline-block
+		float: none
+		margin: 0 -3px
+		vertical-align: middle
+	p
+		margin: 0
+		font-family: "SegoeUIRegular", sans-serif
+		color: #666
+	a	
+		display: block
+		width: 100%
+		font-family: "SegoeUIRegular", sans-serif
+		text-transform: uppercase
+		text-decoration: underline
+		text-align: right
+		color: #666
+		&:hover
+			color: #666
+			text-decoration: underline				
+
+@media screen and (max-width: 1200px)
+	.protein-block 
+		.box-1, .box-2, .box-3, .box-4, .box-5, .box-6, .box-7, .box-8
+			overflow-x: hidden
+		.box-1 
+			padding: 20px 40px 10px 40px
+			.title-block 
+				h2
+					+adjust-font-size-to(80px)
+					line-height: 1
+			.form-block
+				padding: 20px 40px	
+		.box-7
+			.bright-tastes
+				&.full-version
+					&:before, &:after
+						content: initial						
+		.box-8 
+			.video-block 
+				.text-block 
+					p		
+						+adjust-font-size-to(18px)
+						line-height: 1.2
+				.mejs__controls
+					top: 60%
+@media screen and (max-width: 992px)	
+	.protein-block 
+		.box-1 
+			padding: 20px 20px 10px
+			.title-block 
+				h2
+					+adjust-font-size-to(60px)
+					line-height: 1	
+		.box-2 
+			.goals-block	
+				max-width: 70%	
+		.box-3 
+			.function-title
+				padding: 50px 30px
+			.one-function 
+				.function	
+					width: 75%			
+		.box-4 
+			.reviews-container 
+				&:before
+					top: -26%
+					right: -20%
+					transform: scale(0.7)
+				.reviews-block	
+					padding: 150px 80px 50px	
+					.one-review 
+						a
+							height: 160px
+		.box-5 
+			.composition 
+				table			
+					width: 50%
+		.box-6 
+			.certificates	
+				background-position: 100% 50%
+			.product-attr
+				width: 100%		
+				.attr
+					width: 24%	
+		.box-7
+			.bright-tastes
+				&:after, &:before
+					top: 77%	
+				&:before
+					left: -27%
+				&:after
+					right: -27%			
+		.box-8
+			.video-block
+				.mejs__controls
+					top: 150px
+					width: 90%
+					left: -87%
+			.container
+				width: 100%
+				.text-block 
+					padding: 20px 0 0
+					&:first-child
+						height: 170px
+					p			
+						+adjust-font-size-to(16px)
+						line-height: 1.2		
+					&:nth-child(2)
+						width: 80%
+				.btn-container
+					padding: 10px 0 0			
+			.form-container
+				.title-block
+					width: 75%
+				form
+					width: 50%			
+@media screen and (max-width: 767px)	
+	.mobile-block
+		display: block
+	.protein-block
+		.mobile-block
+			display: block
+		.box-1
+			background-size: cover
+			.col-xs-12
+				&:first-child
+					.image-block 
+						display: none
+			.image-block 	
+				text-align: center
+				img
+					position: static
+					width: initial
+					max-width: 100%
+		.box-2
+			background-image: none			
+		.box-3 
+			overflow-x: hidden
+			.function-title
+				width: 90%	
+			.one-function 
+				.function
+					width: 95%
+					&.first-function
+						&:before, &:after
+							content: initial
+			.about-bcaa
+				padding: 20px 15px
+				&:after
+					content: initial		
+		.box-4 
+			.reviews-container 
+				&:before
+					content: initial
+				.reviews-block		
+					padding: 40px	
+					.one-review 
+						a
+							height: initial
+							img
+								box-shadow: 0 0 8px rgba(0, 0, 0, 0.27)
+							&.hover
+								transform: none		
+		.box-5 
+			.composition 
+				table
+					width: 75%						
+		.box-6 
+			.certificates	
+				background-image: none
+				&:nth-child(2)
+					display: none
+				&.certificates-mobile
+					display: block	
+				a
+					padding: 20px 40px
+					&.hover
+						box-shadow: none
+						transform: none
+			.product-attr
+				display: none															
+		.box-7 
+			.bright-tastes 
+				.taste-block 
+					.image-block
+						display: block
+						width: 100%
+						text-align: center	
+				&:before, &:after
+					content: initial
+		.box-8 
+			padding: 20px 0
+			.container 
+				.text-block
+					padding: 20px 0 40px
+					&:first-child
+						height: initial
+					&:nth-child(2)
+						display: none		
+				.btn-container
+					display: none			
+			.video-block
+				.video-container
+					&:after
+						content: initial
+				.mejs__controls
+					display: none							
+			.form-container 
+				.title-block
+					width: 100%
+				form
+					width: 70%			
+@media screen and (max-width: 480px)
+	.protein-block
+		form
+			.row-block
+				.input-row
+					display: block
+					margin-top: 10px
+					width: 100%
+					&:first-child, &:last-child
+						padding: 0		
+		.box-1
+			padding: 50px 0 20px
+			.title-block
+				padding: 0 10px
+			.form-block
+				padding: 20px				
+		.box-2 
+			.title-block
+				h3
+					+adjust-font-size-to(20px)		
+					line-height: 1.2						
+			.goals-block
+				max-width: 100%
+				padding: 0 20px
+				.goal
+					display: block
+					width: 100%
+					p
+						+adjust-font-size-to(16px)	
+						line-height: 1.2
+		.box-3 
+			.function-title
+				padding: 40px 20px		
+				width: 95%
+				h3
+					+adjust-font-size-to(20px)		
+					line-height: 1.2						
+			.one-function 
+				.function 
+					padding: 40px 0 20px
+					> *		
+						display: block
+						width: 100%
+				.icon-block
+					text-align: center	
+				.title-block
+					text-align: center
+			.about-bcaa 
+				.title-block
+					h3	
+						+adjust-font-size-to(22px)	
+						line-height: 1.2
+					&:after, &:before
+						content: initial	
+				.text-block	
+					padding: 10px 0 20px						
+		.box-4 
+			.reviews-container 
+				.title-block
+					&:after
+						content: initial
+				.reviews-block
+					padding: 20px 10px
+		.box-5 
+			.composition 
+				padding: 20px
+				.title-block 
+					h4													
+						+adjust-font-size-to(20px)		
+						line-height: 1.2	
+				table
+					width: 100%			
+		.box-6 
+			.title-block 
+				padding: 0 20px
+				h3			
+					+adjust-font-size-to(20px)		
+					line-height: 1.2					
+			.certificates
+				padding: 20px 0	
+				.row
+					margin: 0	
+				a
+					padding: 0
+					img
+						width: 100%
+		.box-7 
+			.bright-tastes 
+				.container 
+					.row 
+						> .title-block
+							padding: 20px
+		.box-8 
+			.form-container 
+				.title-block 
+					h3					
+						+adjust-font-size-to(20px)		
+						line-height: 1.2						
+				form
+					width: 100%
+					padding: 20px
+					&:before, &:after
+						content: initial		
